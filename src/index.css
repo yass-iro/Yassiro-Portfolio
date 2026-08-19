@@ -1,0 +1,171 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Sora", "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  /* Frost accent scale */
+  --color-brand-50: #eefaff;
+  --color-brand-100: #d9f3ff;
+  --color-brand-200: #b8e9ff;
+  --color-brand-300: #85dbff;
+  --color-brand-400: #4bc6ff;
+  --color-brand-500: #1fa8fb;
+  --color-brand-600: #0e87e0;
+  --color-brand-700: #0c6bb5;
+  --color-brand-800: #105a93;
+  --color-brand-900: #124b78;
+  --color-brand-950: #0d2f4d;
+
+  /* Slate scale (page background) */
+  --color-ink-950: #08090c;
+  --color-ink-900: #0f1116;
+  --color-ink-800: #171a21;
+  --color-ink-700: #21252e;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-ink-950 font-sans text-zinc-100 antialiased;
+}
+
+::selection {
+  @apply bg-brand-500 text-white;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-ink-950);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-ink-700);
+  border-radius: 8px;
+  border: 2px solid var(--color-ink-950);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-brand-700);
+}
+
+/* Signature gradient text */
+@utility text-gradient {
+  background-image: linear-gradient(
+    100deg,
+    #fcd34d,
+    var(--color-brand-400) 45%,
+    #fb7185 95%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Subtle blueprint grid */
+@utility bg-grid {
+  background-image: linear-gradient(
+      to right,
+      rgb(255 255 255 / 0.05) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.05) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+
+/* Animated gradient sweep */
+@keyframes gradient-x {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+.animate-gradient-x {
+  background-size: 200% 200%;
+  animation: gradient-x 6s ease infinite;
+}
+
+/* Sliding thumbnail rows */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-track {
+  animation: marquee 45s linear infinite;
+  will-change: transform;
+}
+.marquee-track.is-reverse {
+  animation-direction: reverse;
+}
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+/* Floating chip */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .animate-gradient-x,
+  .animate-float,
+  .marquee-track {
+    animation: none;
+  }
+}
+
+
+@keyframes lightbox-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.lightbox-img {
+  animation: lightbox-in 0.25s ease;
+}
