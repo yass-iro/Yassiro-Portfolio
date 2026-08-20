@@ -12,7 +12,7 @@ import { IconArrowRight, IconArrowUpRight, IconX } from "./icons";
 const ROWS = [
   { duration: "24s", reverse: false, items: [0, 2, 4, 6] },
   { duration: "28s", reverse: true, items: [8, 3, 10, 5] },
-  { duration: "20s", reverse: false, items: [7, 1, 9] },
+  { duration: "20s", reverse: false, items: [7, 1, 9,11] },
 ];
 
 function ThumbRow({

@@ -72,6 +72,12 @@ export const PORTFOLIO: PortfolioItem[] = [
     ctr: "+8.7% CTR",
     image: "/images/thumb-11.jpg",
   },
+  {
+    // title: "48 Hours Alone in Tokyo",
+    niche: "Travel",
+    ctr: "+8.7% CTR",
+    image: "/images/thumb-12.png",
+  },
 ];
 
 export type Service = {

@@ -97,7 +97,7 @@ export default function Hero() {
             </div>
           </div> */}
 
-          <div
+          {/* <div
             className="absolute -right-4 bottom-10 hidden animate-float items-center gap-3 rounded-2xl border border-white/10 bg-ink-900/90 p-4 shadow-xl backdrop-blur md:flex lg:-right-10"
             style={{ animationDelay: "1.5s" }}
           >
@@ -108,7 +108,7 @@ export default function Hero() {
               <p className="font-display text-lg font-bold text-white">150+</p>
               <p className="text-xs text-zinc-500">Thumbnails shipped</p>
             </div>
-          </div>
+          </div> */}
         </Reveal>
 
         {/* Stats */}
